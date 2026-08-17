@@ -29,7 +29,7 @@ The UART architecture does not share a common clock signal between devices, maki
 * Uses a 4-state Finite State Machine (FSM): **Idle**, **Start**, **Data** (sends bits sequentially), and **Stop**.
 * Outputs a `busy` flag to prevent data overwrite during transmission.
 
-![Transmitter FSM](link_to_tx_fsm_image_here)
+![Transmitter FSM](images/tx_fsm_verdi.png)
 *Caption: Figure 1 - State machine diagram detailing the operational states of the UART Transmitter.*
 
 ### 3. Receiver (RX) 📥
@@ -37,14 +37,14 @@ The UART architecture does not share a common clock signal between devices, maki
 * Uses 16x oversampling and samples the bit exactly at the midpoint (sample == 7) to reject noise.
 * Uses a 5-state FSM: **Idle**, **Start**, **Data**, **Stop**, and **Done**.
 
-![Receiver FSM](link_to_rx_fsm_image_here)
+![Receiver FSM](images/rx_fsm_verdi.png)
 *Caption: Figure 2 - State machine diagram detailing the 16x oversampling states of the UART Receiver.*
 
 ### 4. Top Module 🧩
 * Integrates the Baud Rate Generator, TX, and RX modules.
 * Features an internal loopback connection (`tx_rx`) that feeds the transmitted data directly into the receiver.
 
-![UART Block Diagram](link_to_block_diagram_image_here)
+![UART Block Diagram](images/UART_top_synth.png)
 *Caption: Figure 3 - Top-level block diagram integrating the TX, RX, and Baud Rate Generator with loopback configuration.*
 
 ## 🛠️ UVM Verification
@@ -63,13 +63,13 @@ The design successfully serialized, transmitted, received, and deserialized the 
 ![Baudrate Generator Waveform](link_to_baud_waveform_image_here)
 *Caption: Figure 5 - Simulation waveform verifying the clock division and tick generation of the Baud Rate Generator.*
 
-![Transmitter Waveform](link_to_tx_waveform_image_here)
+![Transmitter Waveform](images/tx_waveform.png)
 *Caption: Figure 6 - Simulation waveform demonstrating parallel-to-serial conversion during UART transmission.*
 
-![Receiver Waveform](link_to_rx_waveform_image_here)
+![Receiver Waveform](images/rx_waveform.png)
 *Caption: Figure 7 - Simulation waveform demonstrating serial-to-parallel deserialization during UART reception.*
 
-![Top Module Waveform](link_to_top_waveform_image_here)
+![Top Module Waveform](images/top_waveform.png)
 *Caption: Figure 8 - Simulation waveform of the integrated UART top module verifying the internal TX-to-RX loopback.*
 
 ### 🔬 Synthesis & Static Timing Analysis
@@ -78,7 +78,8 @@ The ASIC synthesis workflow used the Synopsys Design Compiler with the 32nm SAED
 * **Cell Area:** **1122.80 µm²**.
 * **Power Dissipation:** **58.20 µW**.
 
-![Synthesis Reports](link_to_synthesis_reports_image_here)
+![Synthesis Report QOR 1](images/uart_qor_rpt_1.png)
+![Synthesis Report QOR 2](images/uart_qor_rpt_2.png)
 *Caption: Figure 9 - Synopsys Design Compiler Quality of Results (QoR) reports detailing total cell area and power dissipation.*
 
 ![Static Timing Analysis](link_to_sta_report_image_here)
