@@ -1,7 +1,7 @@
 # 🚀 UART Design, UVM Verification, and Synthesis
 
 > **Author:** Mahesh Kumar Sahoo
-> **Project Source:** MAHESH_UART_UVM_REPORT.pdf
+> **For Proper  Documentation read :** MAHESH_UART_UVM_REPORT.pdf
 
 Welcome to the Universal Asynchronous Receiver Transmitter (UART) project repository! This project demonstrates the end-to-end RTL design, loopback verification, and ASIC logic synthesis of a UART architecture.
 
