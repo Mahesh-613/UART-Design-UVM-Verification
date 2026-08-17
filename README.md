@@ -53,27 +53,28 @@ The design was extensively verified using a Universal Verification Methodology (
 * **Components:** The UVM testbench includes standard verification components such as the Interface (`uart_intf`), Sequence, Driver, Monitor, Agent, Scoreboard, and Environment.
 * **Scoreboard Logic:** The Scoreboard continuously fetches and compares transactions. It validates the received `data_out` against the expected `data_in` and prints out a detailed report of matched vs. mismatched test cases.
 
-![UVM Terminal Output](link_to_uvm_terminal_image_here)
+![UVM Terminal Output](images/Screenshot 2026-08-14 213527.png)
 *Caption: Figure 4 - UVM Scoreboard terminal output validating transactions and displaying final test results.*
 
 ## 📊 Output
 The design successfully serialized, transmitted, received, and deserialized the data frames. 
 
 ### 🌊 Simulation Waveforms
-![Baudrate Generator Waveform](link_to_baud_waveform_image_here)
+![Baudrate Generator Waveform](images/Baudrate_SV_TB_waveform.png)
 *Caption: Figure 5 - Simulation waveform verifying the clock division and tick generation of the Baud Rate Generator.*
 
 ![Transmitter Waveform](images/tx_waveform.png)
-*Caption: Figure 6 - Simulation waveform demonstrating parallel-to-serial conversion during UART transmission.*
+*Caption: Figure 6 - Simulation waveform demonstrating UART Transmitter output.*
 
 ![Receiver Waveform](images/rx_waveform.png)
-*Caption: Figure 7 - Simulation waveform demonstrating serial-to-parallel deserialization during UART reception.*
+*Caption: Figure 7 - Simulation waveform demonstrating UART Receiver output.*
 
 ![Top Module Waveform](images/top_waveform.png)
-*Caption: Figure 8 - Simulation waveform of the integrated UART top module verifying the internal TX-to-RX loopback.*
+*Caption: Figure 8 - Simulation waveform of the integrated UART top module verifying the internal TX-to-RX communication*
 
 ### 🔬 Synthesis & Static Timing Analysis
 The ASIC synthesis workflow used the Synopsys Design Compiler with the 32nm SAED32 standard cell library. 
+
 * **Timing Closure:** Achieved setup timing closure with a positive slack of **6.89 ns** (under a 10 ns clock period, zero violating paths).
 * **Cell Area:** **1122.80 µm²**.
 * **Power Dissipation:** **58.20 µW**.
@@ -82,7 +83,7 @@ The ASIC synthesis workflow used the Synopsys Design Compiler with the 32nm SAED
 ![Synthesis Report QOR 2](images/uart_qor_rpt_2.png)
 *Caption: Figure 9 - Synopsys Design Compiler Quality of Results (QoR) reports detailing total cell area and power dissipation.*
 
-![Static Timing Analysis](link_to_sta_report_image_here)
+![Static Timing Analysis](images/uart_timing_2.png)
 *Caption: Figure 10 - Static Timing Analysis (STA) report confirming zero timing violations and a positive setup slack of 6.89 ns.*
 
 ## 🎯 Conclusion
